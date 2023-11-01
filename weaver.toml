@@ -1,8 +1,2 @@
 [serviceweaver]
-binary = "./example"
-
-[single]
-listeners.lis = { address="localhost:8080" }
-
-[multi]
-listeners.lis = { address="localhost:8080" }
+binary = "./search_engine"

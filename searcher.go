@@ -2,9 +2,6 @@ package main
 
 import (
 	"context"
-	"slices"
-	"sort"
-	"strings"
 
 	"github.com/ServiceWeaver/weaver"
 )
@@ -31,24 +28,11 @@ func (s searcher) Search(ctx context.Context, query string) ([]string, error) {
 	//
 	// We iterate over all emojis and return the ones that match the query (sorted) -> (sort.Strings).
 	//
-	s.Logger(ctx).Debug("this is a message from the component")
 	results := []string{}
-	words := strings.Fields(strings.ToLower(query))
-	for emoji, labels := range emojis {
-		if matches(labels, words) {
-			results = append(results, emoji)
-		}
-	}
-	sort.Strings(results)
 	return results, nil
 }
 
 // matches returns whether words is a subset of labels.
 func matches(labels, words []string) bool {
-	for _, word := range words {
-		if !slices.Contains(labels, word) {
-			return false
-		}
-	}
 	return true
 }

@@ -4,13 +4,9 @@ package main
 
 import (
 	"context"
-
-	"github.com/ServiceWeaver/weaver"
 )
 
-type app struct {
-	weaver.Implements[weaver.Main]
-}
+type app struct{}
 
 func main() {}
 

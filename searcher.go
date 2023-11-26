@@ -2,17 +2,11 @@ package main
 
 import (
 	"context"
-
-	"github.com/ServiceWeaver/weaver"
 )
 
-type Searcher interface {
-	Search(ctx context.Context, query string) ([]string, error)
-}
+type Searcher interface{}
 
-type searcher struct {
-	weaver.Implements[Searcher]
-}
+type searcher struct{}
 
 func (s searcher) Search(ctx context.Context, query string) ([]string, error) {
 	// Perform the search with the following rules:
